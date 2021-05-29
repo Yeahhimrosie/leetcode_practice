@@ -61,3 +61,47 @@ var shuffle = function(nums, n) {
     }
     return this.result;
 };
+
+//5/29/2021
+//Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
+// Return the running sum of nums.
+
+var runningSum = function(nums) {
+    var sum = 0;
+    newArr = [];
+    for(var i = 0; i < nums.length; i++){
+        sum = sum + nums[i];
+        newArr.push(sum);
+    }
+    return newArr;
+};
+console.log(runningSum([1,2,3,4]));
+
+
+//Given the array candies and the integer extraCandies, where candies[i] represents the number of candies that the -ith kid has.
+// For each kid check if there is a way to distribute extraCandies among the kids such that he or she can have the greatest number of candies among them. Notice that multiple kids can have the greatest number of candies.
+//@param {number[]} candies
+//@param {number} extraCandies
+//@return {boolean[]} <--- On leetCode you must pay attention to what it is asking for as far as data type!!
+
+var kidsWithCandies = function(candies, extraCandies){
+    let  newArr = [];
+    let thomas = 0;
+    for(var i = 0; i < candies.length; i++){   //Others used Math.max(...candies) library to find the largest value within the declared array
+        if(candies[i] > thomas){
+            thomas = candies[i];
+        }
+    }
+    
+    for(var i = 0; i < candies.length; i++){
+        console.log(candies[i] + extraCandies);
+        if(candies[i] + extraCandies >= thomas){
+            newArr.push(true);   //we had put "" string values here which threw the leetCode result checker!
+        } else {
+            newArr.push(false);  //we had put "" string values here which threw the leetCode result checker!
+        }
+    }
+    return newArr;
+};
+
+console.log(kidsWithCandies([2,3,5,1,3], 3));
