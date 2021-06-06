@@ -120,21 +120,17 @@ var convert = function (s, numRows) {
     var row_pos = 0;
     var row_adj = 1;
     var newArr = [];
-
     for (var i = 0; i<s.length; i++) {
-        rowdata = newArr[row_pos];
-        if (rowdata == undefined) {rowdata = "";}
+        rowdata = (newArr[row_pos] == undefined ? "" : newArr[row_pos]); // adding in a ? : is known as "terniary"  this give the ability to add in an if true or else false block conditional.
         rowdata += s[i];
         newArr[row_pos] = rowdata;
-
         row_pos += row_adj;
         if (row_pos == 0) {row_adj=1;}
         if (row_pos == numRows-1) {row_adj=-1;}
-
     }
-
-    return newArr.join(""); 
+    return newArr.join("")
 }
-console.log(convert("PAYPALISHIRING", 3));
- // .join() allows the information to be set into one single string 
+
+console.log(convert("PAYPALISHIRING",3))
+// .join() allows the information to be set into one single string 
 //.replace(/,/g, '') says to take of what ever is in '//, and g means globally, then replace with "whatever is in here")
