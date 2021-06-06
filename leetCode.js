@@ -105,3 +105,36 @@ var kidsWithCandies = function(candies, extraCandies){
 };
 
 console.log(kidsWithCandies([2,3,5,1,3], 3));
+
+
+//leetCode 6/5/2021 #55
+
+
+
+// 6/6/2021 #6
+//@param {string} s
+//@param {number} numRows
+//@return {string}
+
+var convert = function (s, numRows) {
+    var row_pos = 0;
+    var row_adj = 1;
+    var newArr = [];
+
+    for (var i = 0; i<s.length; i++) {
+        rowdata = newArr[row_pos];
+        if (rowdata == undefined) {rowdata = "";}
+        rowdata += s[i];
+        newArr[row_pos] = rowdata;
+
+        row_pos += row_adj;
+        if (row_pos == 0) {row_adj=1;}
+        if (row_pos == numRows-1) {row_adj=-1;}
+
+    }
+
+    return newArr.join(""); 
+}
+console.log(convert("PAYPALISHIRING", 3));
+ // .join() allows the information to be set into one single string 
+//.replace(/,/g, '') says to take of what ever is in '//, and g means globally, then replace with "whatever is in here")
