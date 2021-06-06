@@ -134,3 +134,18 @@ var convert = function (s, numRows) {
 console.log(convert("PAYPALISHIRING",3))
 // .join() allows the information to be set into one single string 
 //.replace(/,/g, '') says to take of what ever is in '//, and g means globally, then replace with "whatever is in here")
+//HERE IS AN EVEN MORE CONDENSED VERSION BELOW :)
+// var convert = function (s, numRows) {
+//     var row_pos = 0;
+//     var row_adj = 1;
+//     var newArr = [];
+//     for (var i = 0; i<s.length; i++) {
+//         newArr[row_pos] = (newArr[row_pos] == undefined ? s[i] : newArr[row_pos] + s[i]);
+//         row_pos += row_adj;
+//         if (row_pos == 0) {row_adj=1;}
+//         if (row_pos == numRows-1) {row_adj=-1;}
+//     }
+//     return newArr.join("")
+// }
+
+// console.log(convert("PAYPALISHIRING",3))
